@@ -341,7 +341,7 @@
 				filter = options.filter,
 				startIndex;
 
-			_saveInputCheckedState(el);
+			
 
 
 			// Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
@@ -1496,25 +1496,6 @@
 		}
 		else {
 			return el.cloneNode(true);
-		}
-	}
-
-	function _saveInputCheckedState(root) {
-		
-
-		var inputs = root.getElementsByTagName('input');
-		var idx = inputs.length;
-
-		while (idx--) {
-			var el = inputs[idx];
-			var i = savedInputChecked.indexOf(el);
-			if (el.checked && i < 0) {
-				// el checked and not already in array
-				savedInputChecked.push(el);
-			} else if (el.checked === false && i >= 0) {
-				// el unchecked but in array
-				savedInputChecked.splice(i, 1);
-			}
 		}
 	}
 
